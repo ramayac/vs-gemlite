@@ -1,5 +1,10 @@
 # Change Log
 
+
+## [0.2]
+
+- JSON C Syntax highlight and code navigation between .case/.api files.
+
 ## [0.1]
 
 - Initial release  

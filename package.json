@@ -1,9 +1,9 @@
 {
   "name": "gemlite",
   "displayName": "GEM Lite",
-  "description": "Code navigation support for .case/.api files used by GEM Lite.",
+  "description": "Simple VS Code plugin for code navigation support in .case/.api files used by GEM Lite.",
   "icon": "images/icon.png",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "ramayac",
   "repository": "https://github.com/ramayac/vs-gemlite",
   "engines": {
