@@ -8,7 +8,7 @@ I hope this is as usefull to you as it is to me!
 
 ## Aknowledgment 
 
-GEM Lite is created by: John Bi @ Telus.
+GEM Lite is created and maintained by: John Bi.
 
 
 ## Release Notes
