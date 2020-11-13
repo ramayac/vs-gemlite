@@ -1,0 +1,9 @@
+{
+  "name": "GemLite",
+  "scopeName": "source.notes",
+  "fileTypes": [
+    "case", "api"
+  ],
+  "uuid": "",
+  "patterns": []
+}
