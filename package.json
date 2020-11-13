@@ -1,10 +1,10 @@
 {
   "name": "gemlite",
   "displayName": "GEM Lite",
-  "description": "Syntax highlighting for simple .case/.api files used by GEM Lite",
+  "description": "Code navigation support for .case/.api files used by GEM Lite.",
   "icon": "images/icon.png",
-  "version": "1.1.0",
-  "publisher": "x188349",
+  "version": "0.1.0",
+  "publisher": "ramayac",
   "repository": "https://github.com/ramayac/vs-gemlite",
   "engines": {
     "vscode": "^1.10.0"
