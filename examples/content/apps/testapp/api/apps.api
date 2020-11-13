@@ -1,5 +1,5 @@
 {
-  "v1/GetItssImpactedTeamsComponentRate": {
+  "v1/link1": {
     "name": "[REST] test test",
     "method": "GET",
     "refEcIds": [
@@ -7,7 +7,7 @@
       "ecGetItssImpactedTeamsComponentRate"
     ]
   },
-  "v1/GetItssExtractMetricCE": {
+  "v1/link2": {
     "name": "[REST] test test",
     "method": "GET",
     "refEcIds": [
