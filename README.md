@@ -1,9 +1,14 @@
-# VS GEM Lite
+# VS GEM Lite plugin
 
-A rather simple plugin to handle .api/.case files used in GEM Lite.
-The idea is just to link files and navigate the structure of those files faster.
+Simple VSCode plugin to support GEM Lite .api/.case code navigation. 
+The general idea was just to provide a way to link and navigate the structure of files (case/api) faster.
 
-Use at your conveninece.
+I hope this is as usefull to you as it is to me!
+
+
+## Aknowledgment 
+
+GEM Lite is created by: John Bi @ Telus.
 
 
 ## Release Notes
