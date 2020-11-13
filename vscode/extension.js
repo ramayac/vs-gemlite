@@ -67,7 +67,7 @@ exports.activate = async function activate(context) {
           }
 
           //TODO: this should be configurable
-          if (matched == undefined || matched == "" || matched.indexOf("KeywordHelper") > 0) {
+          if (matched == undefined || matched == "" || matched.indexOf("telus.gem.engine") > 0) {
             continue;
           }
 
@@ -105,7 +105,7 @@ exports.activate = async function activate(context) {
           let matched = match[1];
 
           //TODO: this should be configurable
-          if (matched == undefined || matched == "" || matched.indexOf("KeywordHelper") > 0) {
+          if (matched == undefined || matched == "" || matched.indexOf("telus.gem.engine") > 0) {
             continue;
           }
 

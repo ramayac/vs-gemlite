@@ -1,6 +1,6 @@
 {
   "name": "GemLite",
-  "scopeName": "source.notes",
+  "scopeName": "gemlite.caseapi",
   "fileTypes": [
     "case", "api"
   ],

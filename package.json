@@ -31,7 +31,7 @@
     "grammars": [
       {
         "language": "gemlite",
-        "scopeName": "source.notes",
+        "scopeName": "gemlite.caseapi",
         "path": "./syntaxes/gemlite.tmLanguage.json"
       }
     ]
