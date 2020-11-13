@@ -1,4 +1,10 @@
-# GEM Lite
+# VS GEM Lite
+
+A rather simple plugin to handle .api/.case files used in GEM Lite.
+The idea is just to link files and navigate the structure of those files faster.
+
+Use at your conveninece.
+
 
 ## Release Notes
 
