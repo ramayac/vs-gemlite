@@ -1,4 +1,5 @@
 const vscode = require("vscode");
+
 const os = require("os");
 const paths = require("path");
 const { relative } = require("path");
@@ -13,6 +14,8 @@ const {
   workspace,
   window,
 } = vscode;
+
+const apicsvreport	= require("..\\commands\\apicsvreport");
 
 exports.activate = async function activate(context) {
 
@@ -32,7 +35,6 @@ exports.activate = async function activate(context) {
   const linkPatternCaseRef = /("actionClass": "(.*)")|("actionClass":"(.*)")/g;
   //const linkPatternApiRef = /  "(\w+)"[,\n]+/g; //this is a hack.
   const linkPatternApiRef = /      "(\w+)"/g; //this is a hack.
-
   // A file can describe it's own links via this pattern, e.g.
   //   [/\(MLG-\d+\)/ -> https://mediciventures.atlassian.net/browse/$0]
   //const externalLinkPatterns = /\[\/([^\/]+)\/\s*->\s*(https?:\/\/[^\]]+)\]/g;
@@ -203,5 +205,13 @@ exports.activate = async function activate(context) {
   context.subscriptions.push(
     languages.registerDocumentLinkProvider({ language: "gemlite" }, linkProvider)
   );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand('gemlite.apiReport', function(){
+      console.log("apicsvreport call");
+      apicsvreport(vscode, paths);
+    })
+  );
+
 
 };
