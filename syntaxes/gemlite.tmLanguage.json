@@ -3,7 +3,7 @@
 		"This file is based from: https://github.com/Microsoft/vscode/blob/master/extensions/json/syntaxes/JSONC.tmLanguage.json, ",
 		"this will give full JSON C (JSON with Comments) support to .api and .case files used in Gem Lite."
 	],
-	"version": "0.1.0",
+	"version": "1.0",
 	"name": "GemLite",
 	"scopeName": "gemlite.caseapi",
 	"patterns": [
