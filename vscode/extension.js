@@ -31,9 +31,12 @@ exports.activate = async function activate(context) {
     return text.replace(/\$(\d+)/g, (_, p1) => matches[parseInt(p1, 10)]);
   }
 
+
+  //TODO: move this logic to separate files and refactor the code
   //const linkPattern = /("([^"]+?\.case)"|[^\s]+?\.case)/g;
 
   const linkPatternCaseRef = /("actionClass": "(.*)")|("actionClass":"(.*)")/g;
+  const linkPatternRefUIRef = /("refUITemplateId": "(.*)")|("refUITemplateId":"(.*)")/g;
 
   //Shame on me, these are hacks: 
   const linkPatternApiRef = /      "(\w+)"/g;
@@ -155,6 +158,33 @@ exports.activate = async function activate(context) {
           let linkTarget;
 
           let caseFolder = "..\\case\\" + linkPath + ".case";
+          
+          //console.log(caseFolder);
+          linkTarget = paths.resolve(relativeRoot, caseFolder);
+
+          const fileUri = Uri.file(linkTarget);
+          const docLink = new DocumentLink(range, fileUri);
+          results.push(docLink);
+        }
+
+        while ((match = linkPatternRefUIRef.exec(text))) {
+          let matched = match[2];
+
+          //TODO: this should be configurable
+          if (matched == undefined || matched == "" || matched.indexOf("global") > 0) {
+            continue;
+          }
+
+          const linkStart = document.positionAt(linkPatternRefUIRef.lastIndex - matched.length -1 );
+          const linkEnd = linkStart.translate({
+            characterDelta: matched.length,
+          });
+
+          const range = new Range(linkStart, linkEnd);
+          const linkPath = expandPathHome(matched);
+          let linkTarget;
+
+          let caseFolder = "..\\ui\\" + linkPath + ".vm";
           
           //console.log(caseFolder);
           linkTarget = paths.resolve(relativeRoot, caseFolder);
