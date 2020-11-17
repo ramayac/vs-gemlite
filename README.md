@@ -1,7 +1,7 @@
 # VS GEM Lite plugin
 
-Simple VSCode plugin to support GEM Lite .api/.case code navigation. 
-The general idea was just to provide a way to link and navigate the structure of files (case/api) faster.
+Simple VSCode plugin to support GEM Lite .api/.case/.page code navigation. 
+The general idea was just to provide a way to link and navigate the structure of files (case/api/page) faster.
 
 I hope this is as usefull to you as it is to me!
 
