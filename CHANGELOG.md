@@ -1,5 +1,7 @@
 # Change Log
 
+## [0.3]
+- Added .page support code nagivation
 
 ## [0.2]
 

@@ -1,9 +1,9 @@
 {
   "name": "gemlite",
   "displayName": "GEM Lite",
-  "description": "Simple VS Code plugin for code navigation support in .case/.api files used by GEM Lite.",
+  "description": "Simple VS Code plugin for code navigation support in .case/.api/.page files used by GEM Lite.",
   "icon": "images/icon.png",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "ramayac",
   "repository": "https://github.com/ramayac/vs-gemlite",
   "engines": {
@@ -21,10 +21,13 @@
       {
         "id": "gemlite",
         "aliases": [
-          "GemLite", "GEMLite"
+          "GemLite",
+          "GEMLite"
         ],
         "extensions": [
-          ".case", ".api"
+          ".case",
+          ".api",
+          ".page"
         ]
       }
     ],
@@ -35,20 +38,23 @@
         "path": "./syntaxes/gemlite.tmLanguage.json"
       }
     ],
-    "commands":{
-      "command":"gemlite.apiReport",
+    "commands": {
+      "command": "gemlite.apiReport",
       "title": "GemLite API -> CSV , Create a CSV from the .api file.",
       "when": "editorLangId == gemlite"
     },
     "menus": {
-			"editor/context": [
-				{
-					"command": "gemlite.apiReport",
-					"group": "7_modification",
-					"title": "GemLite API -> CSV , Create a CSV from the .api file.",
-					"when": "editorLangId == gemlite"
+      "editor/context": [
+        {
+          "command": "gemlite.apiReport",
+          "group": "7_modification",
+          "title": "GemLite API -> CSV , Create a CSV from the .api file.",
+          "when": "editorLangId == gemlite"
         }
       ]
     }
+  },
+  "dependencies": {
+    "jsonc": "^2.0.0"
   }
 }

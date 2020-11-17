@@ -32,9 +32,13 @@ exports.activate = async function activate(context) {
   }
 
   //const linkPattern = /("([^"]+?\.case)"|[^\s]+?\.case)/g;
+
   const linkPatternCaseRef = /("actionClass": "(.*)")|("actionClass":"(.*)")/g;
-  //const linkPatternApiRef = /  "(\w+)"[,\n]+/g; //this is a hack.
-  const linkPatternApiRef = /      "(\w+)"/g; //this is a hack.
+
+  //Shame on me, these are hacks: 
+  const linkPatternApiRef = /      "(\w+)"/g;
+  const linkPatternPageRef = /    "(\w+)"[^:]/g; 
+
   // A file can describe it's own links via this pattern, e.g.
   //   [/\(MLG-\d+\)/ -> https://mediciventures.atlassian.net/browse/$0]
   //const externalLinkPatterns = /\[\/([^\/]+)\/\s*->\s*(https?:\/\/[^\]]+)\]/g;
@@ -101,7 +105,7 @@ exports.activate = async function activate(context) {
       }
 
 
-      // Find "api" links to other files in this document
+      // Find links to .case files in "API Document"
       if (document.fileName.indexOf(".api") > 0) {
         while ((match = linkPatternApiRef.exec(text))) {
           let matched = match[1];
@@ -128,32 +132,37 @@ exports.activate = async function activate(context) {
           const docLink = new DocumentLink(range, fileUri);
           results.push(docLink);
         }
+      }
 
-        /*let linkPatternApiRef = JSON.parse(text);
-        for (const uriElement in linkPatternApiRef) {
-          let refFilesArray = linkPatternApiRef[uriElement].refEcIds;
+      // Find links to .page files in "API Document"
+      if (document.fileName.indexOf(".page") > 0) {
+        while ((match = linkPatternPageRef.exec(text))) {
+          let matched = match[1];
+
+          //TODO: this should be configurable
+          if (matched == undefined || matched == "") {
+            continue;
+          }
+
+          const linkStart = document.positionAt(linkPatternPageRef.lastIndex - matched.length - 2 );
+          const linkEnd = linkStart.translate({
+            characterDelta: matched.length,
+          });
+
+          const range = new Range(linkStart, linkEnd);
+
+          const linkPath = expandPathHome(matched);
           let linkTarget;
 
-          if (refFilesArray != undefined && refFilesArray.length > 0) {
-            for (const idx in refFilesArray) {
-              let caseRef = refFilesArray[idx];
+          let caseFolder = "..\\case\\" + linkPath + ".case";
+          
+          //console.log(caseFolder);
+          linkTarget = paths.resolve(relativeRoot, caseFolder);
 
-              let caseFolder = "..\\case\\" + caseRef + ".case";
-              linkTarget = paths.resolve(relativeRoot, caseFolder);
-
-              const linkEnd = document.positionAt(caseRef);
-              const linkStart = linkEnd.translate({
-                characterDelta: -caseRef.length,
-              });
-
-              const range = new Range(linkStart, linkEnd);
-
-              const fileUri = Uri.file(linkTarget);
-              const docLink = new DocumentLink(range, fileUri);
-              results.push(docLink);
-            }
-          }
-        }*/
+          const fileUri = Uri.file(linkTarget);
+          const docLink = new DocumentLink(range, fileUri);
+          results.push(docLink);
+        }
 
       }
 
