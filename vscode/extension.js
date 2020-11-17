@@ -35,8 +35,8 @@ exports.activate = async function activate(context) {
   //TODO: move this logic to separate files and refactor the code
   //const linkPattern = /("([^"]+?\.case)"|[^\s]+?\.case)/g;
 
-  const linkPatternCaseRef = /("actionClass": "(.*)")|("actionClass":"(.*)")/g;
-  const linkPatternRefUIRef = /("refUITemplateId": "(.*)")|("refUITemplateId":"(.*)")/g;
+  const linkPatternCaseRef = /("actionClass"[ :]*"(.*)")/g;
+  const linkPatternRefUIRef = /("refUITemplateId"[ :]*"(.*)")/g;
 
   //Shame on me, these are hacks: 
   const linkPatternApiRef = /      "(\w+)"/g;
@@ -68,12 +68,7 @@ exports.activate = async function activate(context) {
       if (document.fileName.indexOf(".case") > 0) {
         while ((match = linkPatternCaseRef.exec(text))) {
 
-          let matched = "";
-          if (match[2] == undefined) {
-            matched = match[4];
-          } else {
-            matched = match[2];
-          }
+          let matched = match[2];
 
           //TODO: this should be configurable
           if (matched == undefined || matched == "" || matched.indexOf("telus.gem.engine") > 0) {

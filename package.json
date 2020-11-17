@@ -42,16 +42,6 @@
       "command": "gemlite.apiReport",
       "title": "GemLite API -> CSV , Create a CSV from the .api file.",
       "when": "editorLangId == gemlite"
-    },
-    "menus": {
-      "editor/context": [
-        {
-          "command": "gemlite.apiReport",
-          "group": "7_modification",
-          "title": "GemLite API -> CSV , Create a CSV from the .api file.",
-          "when": "editorLangId == gemlite"
-        }
-      ]
     }
   },
   "dependencies": {

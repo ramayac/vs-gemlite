@@ -19,9 +19,9 @@ function execute(vscode, paths){
       //const transforms = [unwind({ paths: ["refEcIds"] })];
       //const json2csvParser = new Parser({ fields, transforms });
 
-      const header = '"Method", "URL", "Name"';
+      //const header = '"Method", "URL", "Name"';
 
-      var fileContent = header + "\n";
+      var fileContent = ""; //header + "\n";
       for(const urlApi in jsonAPIContent){
         let row = jsonAPIContent[urlApi];
         

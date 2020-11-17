@@ -1,0 +1,95 @@
+[
+  {
+    "name" : "ES.10 Load Properties",
+    "vtlCondition" : " ",
+    "actionType" : "java",
+    "actionClass" : "com.telus.gem.engine.KeywordHelper",
+    "actionMethod" : "getAppProperties",
+    "actionParamMap" : {
+      "appId" : "iofdoor"
+    },
+    "actionReturnKey" : "properties"
+  },
+  {
+    "name" : "ES.20 Create Display Table",
+    "vtlCondition" : " ",
+    "actionType" : "js",
+    "actionClass" : "jsERCRBQueryMultiItemFromJIRA",
+    "actionMethod" : "getCrbList",
+    "actionParamMap" : {
+
+    },
+    "actionReturnKey" : ""
+  },
+  {
+    "name" : "ES.30 Transform to Data Table Data",
+    "vtlCondition" : " ",
+    "actionType" : "java",
+    "actionClass" : "com.telus.gem.engine.KeywordHelper",
+    "actionMethod" : "transform2DataTableData",
+    "actionParamMap" : {
+      "tableData" : "$!{contextVariables.tableData}",
+      "sizeLimit" : 10000.0
+    },
+    "actionReturnKey" : "dataTableMapData"
+  }
+// {
+//   "name": "ES.10 Load Properties",
+//   "vtlCondition": " ",
+//   "actionType": "java",
+//   "actionClass": "com.telus.gem.engine.KeywordHelper",
+//   "actionMethod": "getAppProperties",
+//   "actionParamMap": {
+//     "appId": "iofdoor"
+//   },
+//   "actionReturnKey": "properties"
+// },
+// {
+//   "name": "ES.30 Create JQL",
+//   "vtlCondition": " ",
+//   "actionType": "js",
+//   "actionClass": "jsERCRBQueryMultiItemFromJIRA",
+//   "actionMethod": "createJQLforList",
+//   "actionParamMap": {},
+//   "actionReturnKey": ""
+// },
+// {
+//   "name": "ES.40 Configure Send HTTP Request Body",
+//   "vtlCondition": " ",
+//   "actionType": "js",
+//   "actionClass": "jsERCRBQueryMultiItemFromJIRA",
+//   "actionMethod": "configureHTTPRequestBodyforQueryList",
+//   "actionParamMap": {},
+//   "actionReturnKey": ""
+// },
+// {
+//   "name": "ES.50 Call Customized Send HTTP Request",
+//   "vtlCondition": " ",
+//   "actionType": "js",
+//   "actionClass": "jsEREnhancedsendHTTPRequestKeyword",
+//   "actionMethod": "sendHTTPRequest",
+//   "actionParamMap": {},
+//   "actionReturnKey": ""
+// },
+// {
+//   "name": "ES.60 Display Table",
+//   "vtlCondition": " ",
+//   "actionType": "js",
+//   "actionClass": "jsERCRBQueryMultiItemFromJIRA",
+//   "actionMethod": "createDisplayTable",
+//   "actionParamMap": {},
+//   "actionReturnKey": ""
+// },
+// {
+//   "name": "ES.70 transfer tableData for DataTable",
+//   "vtlCondition": " ",
+//   "actionType": "java",
+//   "actionClass": "com.telus.gem.engine.KeywordHelper",
+//   "actionMethod": "transform2DataTableData",
+//   "actionParamMap": {
+//     "tableData": "$!{contextVariables.tableData}",
+//     "sizeLimit": 10000.0
+//   },
+//   "actionReturnKey": "dataTableMapData"
+// }
+]
