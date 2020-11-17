@@ -1,0 +1,11 @@
+{
+  "name": "Test page file",
+  "userRoleAccess": [],
+  "refEcIds": [
+    "ecECSetIOFGEWebAppConfig",
+    "ecECBAUJIRALoadDropdownOptions",
+    "ecECGetUserInfoFromTMODS"
+  ],
+  "refUITemplateId": "utactivatetopoffer",
+  "navMenuSeq": ""
+}
